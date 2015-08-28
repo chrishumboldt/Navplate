@@ -8,12 +8,10 @@
       "url": "git+https://github.com/chrishumboldt/Navplate.git"
    },
    "keywords": [
-      "Javascript",
-      "Components",
-      "Components",
       "Navigation",
+      "Component",
       "Javascript",
-      "Webpplate"
+      "Webplate"
    ],
    "author": "Chris Humboldt",
    "license": "Apache-2.0",

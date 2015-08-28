@@ -6,8 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <!-- Title -->
     <title>Navplate Component</title>
+    <!-- Include Navplate -->
+    <script src="js/navplate.js"></script>
+    <link href="css/navplate.css" rel="stylesheet" type="text/css">
+    <!-- Demo -->
+    <link href="css/demo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-   
+
+   <div class="container">
+      <a href class="nav-trigger" data-nav-link="#nav-example-1">Open Navigation One</a>
+      <ul id="nav-example-1">
+         <li><a href>Link One</a></li>
+         <li><a href>Link Two</a></li>
+         <li><a href>Link Three</a></li>
+         <li><a href>Link Four</a></li>
+         <li><a href>Link Five</a></li>
+      </ul>
+   </div>
+
+   <script>
+   new navplate('.nav-trigger');
+   </script>
+
 </body>
 </html>
