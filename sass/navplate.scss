@@ -4,9 +4,8 @@
  * Author: Chris Humboldt
  */
 
-// Table of contents
-// ---------------------------------------------------------------------------------------
 // Imports
+@import "import";
 
-// Imports
-@import "../bower_components/blueplate/sass/import";
+// Call styles
+@include navplate-css();

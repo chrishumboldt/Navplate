@@ -1,0 +1,72 @@
+/**
+ * File: module/_type-slide.scss
+ * Type: SASS module
+ * Author: Chris Humboldt
+ */
+
+@mixin navplate-type-slide() {
+   .navplate.type-slide.active-always {
+      @include navplate-type-slide-styles();
+   }
+   .navplate.type-slide.active-small {
+      @include breakpoint(small) {
+          @include navplate-type-slide-styles();
+      }
+   }
+   .navplate.type-slide.active-large {
+      @include breakpoint(large) {
+          @include navplate-type-slide-styles();
+      }
+   }
+}
+@mixin navplate-type-slide-styles() {
+   @include block($menu-width, 100%, fixed, top 0 left 0);
+	@include transform-translate-3d(-$menu-width, 0px, 0px);
+	@include overflow(auto, vertical);
+	@include background-color($nav-background);
+	@include level(1001);
+   @include list-style(none);
+   @include animate(all, 0.3s);
+   @include breakpoint(large) {
+       @include width($menu-width-large);
+       @include transform-translate-3d(-$menu-width-large, 0px, 0px);
+   }
+   ul {
+      @include spacing-no();
+      @include list-style(none);
+      @include padding-vertical($space-small);
+   }
+   li {
+      h6 {
+   		@include display(block);
+         @include spacing-no();
+   		@include padding-horizontal($space-base + 4px);
+   		@include padding-vertical($space-minor);
+         @include text-size($size-slight);
+      }
+      a:not(.button):not([class *= "btn-"]) {
+   		@include display(block);
+   		@include padding-horizontal($space-base + 4px);
+   		@include padding-vertical($space-minor);
+         @include text-decoration(none);
+   		@include text-colour($black-base);
+   		@include text-size($size-base);
+         @include text-weight(300);
+   		@include animate(color);
+
+   		div.icon {
+   			@include float(left);
+   			@include padding-right(12px);
+   			@include text-colour($grey);
+   			@include text-size($size-base);
+   		}
+   		.no-touch &:hover {
+   			@include text-colour($red);
+   		}
+      }
+	}
+   // Reveal
+   &.nav-display {
+      @include transform-translate-3d(0px, 0px, 0px);
+   }
+}

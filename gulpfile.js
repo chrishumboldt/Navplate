@@ -36,7 +36,8 @@ gulp.task('js', function() {
 gulp.task('watch', function() {
    livereload.listen();
    gulp.watch([
-      './sass/*.scss'
+      './sass/*.scss',
+      './sass/**/*.scss'
    ], ['css']);
    gulp.watch([
       './js/*.js'

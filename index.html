@@ -15,18 +15,39 @@
 <body>
 
    <div class="container">
-      <a href class="nav-trigger" data-nav-link="#nav-example-1">Open Navigation One</a>
-      <ul id="nav-example-1">
-         <li><a href>Link One</a></li>
-         <li><a href>Link Two</a></li>
-         <li><a href>Link Three</a></li>
-         <li><a href>Link Four</a></li>
-         <li><a href>Link Five</a></li>
-      </ul>
+      <a href id="nav-trigger-1" data-nav-link="#nav-example-1">Open Navigation One</a>
+      <div id="nav-example-1">
+         <ul>
+            <li><h6>Navigation One</h6></li>
+            <li><a href="#">Link One</a></li>
+            <li><a href="#">Link Two</a></li>
+            <li><a href="#">Link Three</a></li>
+            <li><a href="#">Link Four</a></li>
+            <li><a href="#">Link Five</a></li>
+         </ul>
+      </div><br>
+      <a href id="nav-trigger-2" data-nav-link="#nav-example-2">Open Navigation Two</a>
+      <div id="nav-example-2">
+         <ul>
+            <li><h6>Navigation Two</h6></li>
+            <li><a href="#">Link One</a></li>
+            <li><a href="#">Link Two</a></li>
+            <li><a href="#">Link Three</a></li>
+            <li><a href="#">Link Four</a></li>
+            <li><a href="#">Link Five</a></li>
+         </ul>
+      </div>
    </div>
 
    <script>
-   new navplate('.nav-trigger');
+   new navplate('#nav-trigger-1', {
+      active: 'always'
+   });
+   new navplate('#nav-trigger-2', {
+      active: 'always',
+      type: 'fullscreen',
+      reveal: 'left'
+   });
    </script>
 
 </body>
