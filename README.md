@@ -1,6 +1,7 @@
 # Navplate
 A navigation component.
 
+
 ## Getting Started
 You can either download a copy of the source files or install Navplate via Bower.
 
@@ -55,6 +56,36 @@ active | small | small, large, always | Determine when you want the navigation t
 clone | false | true, false | Clone the navigation HTML and use that for the component or if false use the designated HTML.
 close | close | | You can decide what you want the close text to say.
 reveal | left | left, right, top, bottom | Set the direction from which the navigation appears. **NOTE** that the bottom and top option only applies to the fullscreen navigation type.
+
+## Advanced Example
+See an advanced example below with options as per the above.
+
+```
+<body>
+   <a href id="nav-trigger" data-nav-link="#nav-example">Open Navigation</a>
+   <div id="nav-example">
+      <ul>
+         <li><h6>Navigation</h6></li>
+         <li><a href="#">Link One</a></li>
+         <li><a href="#">Link Two</a></li>
+         <li><a href="#">Link Three</a></li>
+         <li><a href="#">Link Four</a></li>
+         <li><a href="#">Link Five</a></li>
+      </ul>
+   </div>
+
+   <script src="js/min/navplate.js"></script>
+   <script>
+   new navplate('#nav-trigger', {
+      type: 'fullscreen',
+      active: 'always',
+      reveal: 'right',
+   });
+   </script>
+</body>
+```
+
+
 
 ## Author
 Created and maintained by Chris Humboldt<br>
