@@ -1,7 +1,7 @@
 # Navplate
 A navigation component.
 
-# Getting Started
+## Getting Started
 You can either download a copy of the source files or install Navplate via Bower.
 
 ```
@@ -19,7 +19,7 @@ Start by including the necessary files.
 </body>
 ```
 
-# HTML Example
+## HTML Example
 There are two different navigations types (more to come), but both use the same basic HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.
 
 ```
@@ -36,7 +36,7 @@ There are two different navigations types (more to come), but both use the same 
 </div>
 ```
 
-# Execute Via Javascript
+## Execute Via Javascript
 Use the following example to trigger the navigation component.
 
 ```
@@ -45,7 +45,7 @@ new navplate('#nav-trigger');
 </script>
 ```
 
-# Javascript Options
+## Javascript Options
 There are a few options that allow changing the navigation type and your desired reveal.
 
 Name | Default | Options | Description
@@ -54,4 +54,25 @@ type | slide | slide, fullscreen | This determines the type of navigation you wa
 active | small | small, large, always | Determine when you want the navigation to be active.
 clone | false | true, false | Clone the navigation HTML and use that for the component or if false use the designated HTML.
 close | close | | You can decide what you want the close text to say.
-reveal | left | left, right, top, bottom | Set the direction from which the navigation appears. **NOTE** that the bottom and top option only applies to the **fullscreen** navigation type.
+reveal | left | left, right, top, bottom | Set the direction from which the navigation appears. **NOTE** that the bottom and top option only applies to the fullscreen navigation type.
+
+## Author
+Created and maintained by Chris Humboldt<br>
+Website: <a href="http://chrishumboldt.com/">chrishumboldt.com</a><br>
+Twitter: <a href="https://twitter.com/chrishumboldt">twitter.com/chrishumboldt</a><br>
+GitHub <a href="https://github.com/chrishumboldt">github.com/chrishumboldt</a><br>
+
+## Copyright and License
+Copyright 2015 HG Bolts
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
