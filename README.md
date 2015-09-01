@@ -1,7 +1,6 @@
 # Navplate
 A navigation component.
 
-
 ## Getting Started
 You can either download a copy of the source files or install Navplate via Bower.
 
@@ -79,13 +78,11 @@ See an advanced example below with options as per the above.
    new navplate('#nav-trigger', {
       type: 'fullscreen',
       active: 'always',
-      reveal: 'right',
+      reveal: 'right'
    });
    </script>
 </body>
 ```
-
-
 
 ## Author
 Created and maintained by Chris Humboldt<br>
