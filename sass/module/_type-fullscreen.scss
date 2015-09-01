@@ -15,6 +15,9 @@ $navplate-fs-delay: 0.075s;
 
 // Mixins
 @mixin navplate-type-fullscreen() {
+   .navplate.type-fullscreen {
+      @include navplate-type-fullscreen-styles-reveal();
+   }
    .navplate.type-fullscreen.active-always {
       @include navplate-type-fullscreen-styles();
    }
@@ -98,6 +101,12 @@ $navplate-fs-delay: 0.075s;
          }
       }
    }
+   // State
+   &.nav-display {
+      @include visibility(visible);
+   }
+}
+@mixin navplate-type-fullscreen-styles-reveal() {
    // Directions
    &.reveal-left {
       li {
@@ -125,7 +134,6 @@ $navplate-fs-delay: 0.075s;
    }
    // State
    &.nav-display {
-      @include visibility(visible);
       li {
          @include transparency(1);
          @include transform-translate-3d(0px, 0px, 0px);
