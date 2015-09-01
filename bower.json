@@ -1,6 +1,6 @@
 {
    "name": "navplate",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "homepage": "https://github.com/chrishumboldt/Navplate",
    "authors": [
       "Chris Humboldt <chrismodem@gmail.com>"
@@ -25,6 +25,8 @@
       "index.html",
       "bower.json",
       "css/demo.css",
+      "js/demo.js",
+      "js/min/demo.js",
       "sass"
    ]
 }
