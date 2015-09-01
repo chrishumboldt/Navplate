@@ -46,7 +46,15 @@ new navplate('#nav-trigger');
 ```
 
 ## Javascript Options
-There are a few options that allow changing the navigation type and your desired reveal.
+There are a few options that allow changing the navigation type and your desired reveal. They can be assigned to the second argument of the Navplate component call.
+
+```
+<script>
+new navplate('#nav-trigger', {
+   type: 'fullscreen'
+});
+</script>
+```
 
 Name | Default | Options | Description
 ---- | ---- | ---- | ----
