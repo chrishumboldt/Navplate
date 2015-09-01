@@ -12,11 +12,54 @@
 </head>
 <body>
 
+   <div class="heading">
+      <div class="container"><h2>Navplate Component</h2></div>
+   </div>
    <div class="container">
-      <a href id="nav-trigger-1" data-nav-link="#nav-example-1">Open Navigation One</a>
+      <h4>Getting Started</h4>
+      <p>You can either download a copy of the source files or install Navplate via Bower.</p>
+<pre class="prettyprint linenums">
+bower install navplate
+</pre>
+      <p>Start by including the necessary files.</p>
+<pre class="prettyprint linenums">
+&lt;head&gt;
+    &lt;link href=&quot;css/navplate.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script src=&quot;js/min/navplate.js&quot;>&lt;/script&gt;
+&lt;/body&gt;
+</pre>
+      <br>
+      <h4>HTML Example</h4>
+      <p>There are two different navigations types (more to come), but both use the same basic HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.</p>
+<pre class="prettyprint linenums">
+&lt;a href id="nav-trigger" data-nav-link="#nav-example">Open Navigation&lt;/a&gt;
+&lt;div id="nav-example"&gt;
+   &lt;ul&gt;
+      &lt;li>&lt;h6&gt;Navigation&lt;/h6>&lt;/li&gt;
+      &lt;li>&lt;a href=&quot;#&quot;&gt;Link One&lt;/a&gt;&lt;/li&gt;
+      &lt;li>&lt;a href=&quot;#&quot;&gt;Link Two&lt;/a&gt;&lt;/li&gt;
+      &lt;li>&lt;a href=&quot;#&quot;&gt;Link Three&lt;/a&gt;&lt;/li&gt;
+      &lt;li>&lt;a href=&quot;#&quot;&gt;Link Four&lt;/a&gt;&lt;/li&gt;
+      &lt;li>&lt;a href=&quot;#&quot;&gt;Link Five&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+      <br>
+      <h4>Execute Via Javascript</h4>
+      <p>Use the following example to trigger the navigation component.</p>
+<pre class="prettyprint linenums">
+&lt;script&gt;
+    new navplate(&apos;#nav-trigger&apos;);
+&lt;/script&gt;
+</pre>
+      <br>
+      <h4>Working Example</h4>
+      <a href id="nav-trigger-1" data-nav-link="#nav-example-1" class="link">Open Slide Navigation</a>
       <div id="nav-example-1">
          <ul>
-            <li><h6>Navigation One</h6></li>
+            <li><h6>Slide Navigation</h6></li>
             <li><a href="#">Link One</a></li>
             <li><a href="#">Link Two</a></li>
             <li><a href="#">Link Three</a></li>
@@ -24,10 +67,10 @@
             <li><a href="#">Link Five</a></li>
          </ul>
       </div><br>
-      <a href id="nav-trigger-2" data-nav-link="#nav-example-2">Open Navigation Two</a>
+      <a href id="nav-trigger-2" data-nav-link="#nav-example-2" class="link">Open Fullscreen Navigation</a>
       <div id="nav-example-2">
          <ul>
-            <li><h6>Navigation Two</h6></li>
+            <li><h6>Fullscreen Navigation</h6></li>
             <li><a href="#">Link One</a></li>
             <li><a href="#">Link Two</a></li>
             <li><a href="#">Link Three</a></li>
@@ -35,10 +78,27 @@
             <li><a href="#">Link Five</a></li>
          </ul>
       </div>
+      <br><br>
+      <h4>Detailed Documentation</h4>
+      <p>For a more detailed look into the available options, you can read the documentation at <a target="_blank" href="https://github.com/chrishumboldt/Navplate" class="link">https://github.com/chrishumboldt/Navplate</a></p>
    </div>
 
+   <footer><div class="container"><div class="col-double">
+
+		<div class="left">
+			Made by <a href="http://chrishumboldt.com" target="_blank">Chris Humboldt</a>
+		</div>
+
+		<div class="right">
+			A <a href="http://getwebplate.com" target="_blank">Webplate Project</a>&nbsp;&nbsp;
+			Want updates? <a href="http://twitter.com/webplatetweets" target="_blank">@webplatetweets</a>
+		</div>
+
+	</div></div></footer>
+
    <!-- Scripts -->
-   <script src="js/navplate.js"></script>
+   <script src="js/min/navplate.js"></script>
+   <script src="js/min/demo.js"></script>
    <script>
    new navplate('#nav-trigger-1', {
       active: 'always'

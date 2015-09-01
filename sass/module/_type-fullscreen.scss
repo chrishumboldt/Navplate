@@ -70,10 +70,11 @@ $navplate-fs-delay: 0.075s;
             @include spacing-no();
             @include padding-vertical($space-minor);
             @include text-colour($white);
-            @include text-size(24px);
+            @include text-size(22px);
+            @include text-weight(500);
             @include breakpoint(large) {
                @include padding-vertical($space-base);
-               @include text-size(28px);
+               @include text-size(26px);
             }
          }
          a {
@@ -81,11 +82,11 @@ $navplate-fs-delay: 0.075s;
             @include padding-vertical($space-minor);
             @include text-colour($white);
             @include text-decoration(none);
-            @include text-size(22px);
+            @include text-size(20px);
             @include text-weight(100);
             @include breakpoint(large) {
                @include padding-vertical($space-base);
-               @include text-size(26px);
+               @include text-size(24px);
             }
             &:hover {
                @include text-colour($white);

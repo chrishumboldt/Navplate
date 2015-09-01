@@ -48,6 +48,7 @@
    		@include padding-horizontal($space-base + 4px);
    		@include padding-vertical($space-minor);
          @include text-size($size-slight);
+         @include text-weight(500);
       }
       a:not(.button):not([class *= "btn-"]) {
    		@include display(block);
