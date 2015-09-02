@@ -68,28 +68,26 @@ reveal | left | left, right, top, bottom | Set the direction from which the navi
 See an advanced example below with options as per the above.
 
 ```
-<body>
-   <a href id="nav-trigger" data-nav-link="#nav-example">Open Navigation</a>
-   <div id="nav-example">
-      <ul>
-         <li><h6>Navigation</h6></li>
-         <li><a href="#">Link One</a></li>
-         <li><a href="#">Link Two</a></li>
-         <li><a href="#">Link Three</a></li>
-         <li><a href="#">Link Four</a></li>
-         <li><a href="#">Link Five</a></li>
-      </ul>
-   </div>
+<a href id="nav-trigger" data-nav-link="#nav-example">Open Navigation</a>
+<div id="nav-example">
+   <ul>
+      <li><h6>Navigation</h6></li>
+      <li><a href="#">Link One</a></li>
+      <li><a href="#">Link Two</a></li>
+      <li><a href="#">Link Three</a></li>
+      <li><a href="#">Link Four</a></li>
+      <li><a href="#">Link Five</a></li>
+   </ul>
+</div>
 
-   <script src="js/min/navplate.js"></script>
-   <script>
-   new navplate('#nav-trigger', {
-      type: 'fullscreen',
-      active: 'always',
-      reveal: 'right'
-   });
-   </script>
-</body>
+<script src="js/min/navplate.js"></script>
+<script>
+new navplate('#nav-trigger', {
+   type: 'fullscreen',
+   active: 'always',
+   reveal: 'right'
+});
+</script>
 ```
 
 ## Author
