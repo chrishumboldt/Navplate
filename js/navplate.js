@@ -11,8 +11,9 @@
 // Options
 // Tools
 
-// Default setup
-var $navplateSetup = {
+// Defaults
+var $navplateDefault = {
+	selector: '.navplate-trigger',
 	active: 'small',
 	clone: false,
 	close: 'close',
@@ -21,18 +22,19 @@ var $navplateSetup = {
 };
 
 // Component
-var navplate = function($selector, $userOptions) {
+var navplate = function($userOptions) {
 	// Variables
 	var $self = this;
 
 	// Options
 	$userOptions = $userOptions || false;
 	$self.options = {
-		active: $userOptions.active || $navplateSetup.active,
-		clone: $userOptions.clone || $navplateSetup.clone,
-		close: $userOptions.close || $navplateSetup.close,
-		type: $userOptions.type || $navplateSetup.type,
-		reveal: $userOptions.reveal || $navplateSetup.reveal
+		selector: $userOptions.selector || $navplateDefault.selector,
+		active: $userOptions.active || $navplateDefault.active,
+		clone: $userOptions.clone || $navplateDefault.clone,
+		close: $userOptions.close || $navplateDefault.close,
+		type: $userOptions.type || $navplateDefault.type,
+		reveal: $userOptions.reveal || $navplateDefault.reveal
 	}
 
 	// Tools
@@ -109,11 +111,11 @@ var navplate = function($selector, $userOptions) {
 	}(document, $self.options);
 
 	// Apply to element
-	var $selectorType = $selector.charAt(0).toString();
-	if ($selectorType === '#') {
-		new navplateComponent(document.getElementById($selector.substring(1)), $self.options, tool);
+	var $selectorType = $self.options.selector.charAt(0).toString();
+	if ($selectorType === '#' && $self.options.selector.indexOf('.') < 0) {
+		new navplateComponent(document.getElementById($self.options.selector.substring(1)), $self.options, tool);
 	} else {
-		var $elements = document.querySelectorAll($selector);
+		var $elements = document.querySelectorAll($self.options.selector);
 		for (var $i = $elements.length - 1; $i >= 0; $i--) {
 			new navplateComponent($elements[$i], $self.options, tool);
 		};
@@ -124,7 +126,7 @@ var navplateComponent = function($this, $option, tool) {
 	if (tool.exists($this)) {
 		// Variables
 		var $self = $this;
-		var $link = $self.getAttribute('data-nav-link');
+		var $link = $self.getAttribute('href');
 		var $navElement = document.querySelector($link);
 
 		// Functions

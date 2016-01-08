@@ -37,7 +37,7 @@ bower install navplate
       <h4>HTML Example</h4>
       <p>There are two different navigations types (more to come), but both use the same basic HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.</p>
 <pre class="prettyprint linenums">
-&lt;a href id="nav-trigger" data-nav-link="#nav-example">Open Navigation&lt;/a&gt;
+&lt;a id="nav-trigger" href="nav-example">Open Navigation&lt;/a&gt;
 &lt;div id="nav-example"&gt;
    &lt;ul&gt;
       &lt;li>&lt;h6&gt;Navigation&lt;/h6>&lt;/li&gt;
@@ -54,12 +54,14 @@ bower install navplate
       <p>Use the following example to trigger the navigation component.</p>
 <pre class="prettyprint linenums">
 &lt;script&gt;
-    new navplate(&apos;#nav-trigger&apos;);
+new navplate({
+    selector: &apos;#nav-trigger&apos;
+});
 &lt;/script&gt;
 </pre>
       <br>
       <h4>Working Example</h4>
-      <a href id="nav-trigger-1" data-nav-link="#nav-example-1" class="link">Open Slide Navigation</a>
+      <a id="nav-trigger-1" href="#nav-example-1" class="link">Open Slide Navigation</a>
       <div id="nav-example-1">
          <ul>
             <li><h6>Slide Navigation</h6></li>
@@ -70,7 +72,7 @@ bower install navplate
             <li><a href="#">Link Five</a></li>
          </ul>
       </div><br>
-      <a href id="nav-trigger-2" data-nav-link="#nav-example-2" class="link">Open Fullscreen Navigation</a>
+      <a id="nav-trigger-2" href="#nav-example-2" class="link">Open Fullscreen Navigation</a>
       <div id="nav-example-2">
          <ul>
             <li><h6>Fullscreen Navigation</h6></li>
@@ -100,13 +102,14 @@ bower install navplate
    <script src="js/min/navplate.js"></script>
    <script src="js/min/demo.js"></script>
    <script>
-   new navplate('#nav-trigger-1', {
-      active: 'always'
+	$navplateDefault.active = 'always';
+	$navplateDefault.reveal = 'left';
+   new navplate({
+		selector: '#nav-trigger-1'
    });
-   new navplate('#nav-trigger-2', {
-      active: 'always',
-      type: 'fullscreen',
-      reveal: 'left'
+   new navplate({
+		selector: '#nav-trigger-2',
+      type: 'fullscreen'
    });
    </script>
 
