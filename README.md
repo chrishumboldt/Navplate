@@ -12,10 +12,11 @@ Start by including the necessary files.
 
 ```
 <head>
-   <link href="css/navplate.css" rel="stylesheet" type="text/css">
+	<link href="css/navplate.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-   <script src="js/min/navplate.js"></script>
+	/* Your content goes here */
+	<script src="js/min/navplate.js"></script>
 </body>
 ```
 
