@@ -64,6 +64,20 @@ clone | false | true, false | Clone the navigation HTML and use that for the com
 close | close | | You can decide what you want the close text to say.
 reveal | left | left, right, top, bottom | Set the direction from which the navigation appears. **NOTE** that the bottom and top option only applies to the fullscreen navigation type.
 
+#### Defaults
+You can also overwrite the above options by altering the default Navplate setup. To do so reference the **$navplateSetup** object and alter. For example:
+
+```
+<script>
+// Default change
+$navplateSetup.active = 'always';
+$navplateSetup.type = 'fullscreen';
+
+// Execute
+new navplate('#nav-trigger');
+</script>
+```
+
 ## Advanced Example
 See an advanced example below with options as per the above.
 
