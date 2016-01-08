@@ -5,8 +5,7 @@
  */
 
 // Table of contents
-// Default setup
-// Component
+// Defaults
 // Variables
 // Options
 // Tools
@@ -21,7 +20,6 @@ var $navplateDefault = {
 	type: 'slide'
 };
 
-// Component
 var navplate = function($userOptions) {
 	// Variables
 	var $self = this;
@@ -149,7 +147,7 @@ var navplateComponent = function($this, $option, tool) {
 				tool.classAdd($navElement, 'navplate type-' + $option.type + ' reveal-' + $option.reveal + ' active-' + $option.active);
 				setTimeout(function() {
 					tool.classAdd($navElement, 'navplate-ready');
-				}, 400);
+				}, 1000);
 			}
 
 			if ($option.type == 'fullscreen') {
