@@ -21,7 +21,7 @@ Start by including the necessary files.
 ```
 
 ## HTML Example
-There are two different navigations types (more to come), but both use the same basic HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.
+There are three different navigations types (more to come), and use near identical HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.
 
 ```
 <a id="nav-trigger" href="#nav-example">Open Navigation</a>
@@ -34,6 +34,22 @@ There are two different navigations types (more to come), but both use the same 
       <li><a href="#">Link Four</a></li>
       <li><a href="#">Link Five</a></li>
    </ul>
+</div>
+
+// The exception to the HTML above is the contextual navigation as show below.
+// It requires a containing element that will get automatically classed.
+<div>
+   <a id="nav-trigger" href="nav-example">Open Navigation</a>
+   <div id="nav-example">
+      <ul>
+         <li><h6>Navigation</h6></li>
+         <li><a href="#">Link One</a></li>
+         <li><a href="#">Link Two</a></li>
+         <li><a href="#">Link Three</a></li>
+         <li><a href="#">Link Four</a></li>
+         <li><a href="#">Link Five</a></li>
+      </ul>
+   </div>
 </div>
 ```
 
@@ -63,7 +79,7 @@ new navplate({
 | Name | Default | Options | Description |
 | ---- | ---- | ---- | ---- |
 | selector | .navplate-trigger | | Set the HTML selector. |
-| type | slide | slide, fullscreen | This determines the type of navigation you want to use. |
+| type | slide | slide, contextual, fullscreen | This determines the type of navigation you want to use. |
 | active | small | small, large, always | Determine when you want the navigation to be active. |
 | clone | false | true, false | Clone the navigation HTML and use that for the component or if false use the designated HTML. |
 | close | close | | You can decide what you want the close text to say. |
