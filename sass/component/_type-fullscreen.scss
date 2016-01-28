@@ -11,6 +11,7 @@
 // Variables
 $navplate-fs-time: 0.25s;
 $navplate-fs-delay: 0.075s;
+
 // Mixins
 @mixin navplate-type-fullscreen() {
    .navplate.type-fullscreen {
@@ -36,6 +37,7 @@ $navplate-fs-delay: 0.075s;
       }
    }
 }
+
 @mixin navplate-type-fullscreen-styles() {
    @include show(block);
    @include position(fixed, top 0 right 0 bottom 0 left 0);

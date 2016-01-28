@@ -35,7 +35,7 @@ bower install navplate
 </pre>
       <br>
       <h4>HTML Example</h4>
-      <p>There are two different navigations types (more to come), but both use the same basic HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.</p>
+      <p>There are three different navigations types (more to come), and use near identical HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.</p>
 <pre class="prettyprint linenums">
 &lt;a id="nav-trigger" href="nav-example">Open Navigation&lt;/a&gt;
 &lt;div id="nav-example"&gt;
@@ -47,6 +47,22 @@ bower install navplate
       &lt;li>&lt;a href=&quot;#&quot;&gt;Link Four&lt;/a&gt;&lt;/li&gt;
       &lt;li>&lt;a href=&quot;#&quot;&gt;Link Five&lt;/a&gt;&lt;/li&gt;
    &lt;/ul&gt;
+&lt;/div&gt;
+
+// The exception to the HTML above is the contextual navigation as show below.
+// It requires a containing element that will get automatically classed.
+&lt;div&gt;
+   &lt;a id="nav-trigger" href="nav-example">Open Navigation&lt;/a&gt;
+   &lt;div id="nav-example"&gt;
+      &lt;ul&gt;
+         &lt;li>&lt;h6&gt;Navigation&lt;/h6>&lt;/li&gt;
+         &lt;li>&lt;a href=&quot;#&quot;&gt;Link One&lt;/a&gt;&lt;/li&gt;
+         &lt;li>&lt;a href=&quot;#&quot;&gt;Link Two&lt;/a&gt;&lt;/li&gt;
+         &lt;li>&lt;a href=&quot;#&quot;&gt;Link Three&lt;/a&gt;&lt;/li&gt;
+         &lt;li>&lt;a href=&quot;#&quot;&gt;Link Four&lt;/a&gt;&lt;/li&gt;
+         &lt;li>&lt;a href=&quot;#&quot;&gt;Link Five&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
       <br>
@@ -82,7 +98,17 @@ new navplate({
             <li><a href="#">Link Four</a></li>
             <li><a href="#">Link Five</a></li>
          </ul>
-      </div>
+      </div><br>
+		<div>
+	      <a id="nav-trigger-3" href="#nav-example-3" class="link">Open Contextual Navigation</a>
+	      <div id="nav-example-3">
+	         <ul>
+	            <li><a href="#">Link One</a></li>
+	            <li><a href="#">Link Two</a></li>
+	            <li><a href="#">Link Three</a></li>
+	         </ul>
+	      </div>
+		</div>
       <br><br>
       <h4>Detailed Documentation</h4>
       <p>For a more detailed look into the available options, you can read the documentation at <a target="_blank" href="https://github.com/chrishumboldt/Navplate" class="link">https://github.com/chrishumboldt/Navplate</a></p>
@@ -99,7 +125,7 @@ new navplate({
 	</div></div></footer>
 
    <!-- Scripts -->
-   <script src="js/min/navplate.js"></script>
+   <script src="js/navplate.js"></script>
    <script src="js/min/demo.js"></script>
    <script>
 	$navplateDefault.active = 'always';
@@ -110,6 +136,10 @@ new navplate({
    new navplate({
 		selector: '#nav-trigger-2',
       type: 'fullscreen'
+   });
+   new navplate({
+		selector: '#nav-trigger-3',
+      type: 'contextual'
    });
    </script>
 

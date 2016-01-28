@@ -150,11 +150,26 @@ var navplateComponent = function($this, $option, tool) {
 				}, 500);
 			}
 
+			// Fullscreen option
 			if ($option.type == 'fullscreen') {
 				var $navClose = document.createElement('a');
 				$navClose.className = 'navplate-close';
 				$navClose.innerHTML = $option.close;
 				$navElement.appendChild($navClose);
+			}
+
+			// Contextual option
+			if ($option.type == 'contextual') {
+				tool.classAdd($navElement.parentNode, 'navplate-contextual-container');
+				var $navCloseUl = document.createElement('ul');
+				var $navCloseLi = document.createElement('li');
+				var $navClose = document.createElement('a');
+				$navClose.className = 'navplate-close';
+				$navClose.innerHTML = $option.close;
+				$navCloseUl.className = 'close-list';
+				$navCloseLi.appendChild($navClose);
+				$navCloseUl.appendChild($navCloseLi);
+				$navElement.appendChild($navCloseUl);
 			}
 		}
 
@@ -164,12 +179,13 @@ var navplateComponent = function($this, $option, tool) {
 			$self.onclick = function(event) {
 				event.preventDefault();
 				if (!tool.hasClass($navElement, 'nav-display')) {
+					navRemoveHTMLOptionClasses();
 					var $openNavs = document.querySelectorAll('.navplate.nav-display');
 					for (var $i = 0, $len = $openNavs.length; $i < $len; $i++) {
 						tool.classRemove($openNavs[$i], 'nav-display');
 					}
 					tool.classAdd($navElement, 'nav-display');
-					tool.classAdd(tool.element.html, 'navplate-reveal navplate-type-' + $option.type);
+					tool.classAdd(tool.element.html, 'navplate-reveal navplate-type-' + $option.type + ' navplate-overlay-active-' + $option.active);
 					document.getElementById('web-overlay').onclick = function() {
 						navClose();
 					};
@@ -192,7 +208,16 @@ var navplateComponent = function($this, $option, tool) {
 		function navClose() {
 			tool.classRemove(document.querySelector('.navplate.nav-display'), 'nav-display');
 			tool.classRemove(tool.element.html, 'navplate-reveal');
-			tool.classRemove(tool.element.html, 'navplate-type-' + $option.type);
+			navRemoveHTMLOptionClasses();
+		}
+
+		function navRemoveHTMLOptionClasses() {
+			tool.classRemove(tool.element.html, 'navplate-type-slide');
+			tool.classRemove(tool.element.html, 'navplate-type-fullscreen');
+			tool.classRemove(tool.element.html, 'navplate-type-contextual');
+			tool.classRemove(tool.element.html, 'navplate-overlay-active-small');
+			tool.classRemove(tool.element.html, 'navplate-overlay-active-always');
+			tool.classRemove(tool.element.html, 'navplate-overlay-active-large');
 		}
 
 		// Execute
