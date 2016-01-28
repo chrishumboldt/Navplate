@@ -15,9 +15,23 @@
 		@include opacity(0);
 		@include animate(all, 0.3s);
 		// Reveal
-		.navplate-reveal & {
+		html.navplate-reveal.navplate-overlay-active-always & {
 			@include visibility(visible);
 			@include opacity(1);
+		}
+		html.navplate-reveal.navplate-overlay-active-small & {
+			@include visibility(visible);
+			@include opacity(1);
+			@include breakpoint(large) {
+				@include visibility(hidden);
+				@include opacity(0);
+			}
+		}
+		html.navplate-reveal.navplate-overlay-active-large & {
+			@include breakpoint(large) {
+				@include visibility(visible);
+				@include opacity(1);
+			}
 		}
 		// Types
 		.navplate-type-fullscreen & {
