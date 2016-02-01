@@ -179,7 +179,9 @@ var navplateComponent = function($this, $option, tool) {
 				$navCloseUl.className = 'close-list';
 				$navCloseLi.appendChild($navClose);
 				$navCloseUl.appendChild($navCloseLi);
-				$navElement.appendChild($navCloseUl);
+				if (!tool.exists($navElement.querySelector('.navplate-close'))) {
+					$navElement.appendChild($navCloseUl);
+				}
 			}
 		}
 
