@@ -80,6 +80,16 @@ var navplate = function($userOptions) {
 				$elem["on" + $type] = $eventHandle;
 			}
 		};
+		var eventRemove = function($elem, $type, $eventHandle) {
+			if ($elem == null || typeof($elem) == 'undefined') return;
+			if ($elem.removeEventListener) {
+				$elem.removeEventListener($type, $eventHandle, false);
+			} else if ($elem.detachEvent) {
+				$elem.detachEvent("on" + $type, $eventHandle);
+			} else {
+				$elem["on" + $type] = $eventHandle;
+			}
+		};
 		var exists = function($element) {
 			if ($element === null || typeof($element) === undefined) {
 				return false;
@@ -101,6 +111,7 @@ var navplate = function($userOptions) {
 			classRemove: classRemove,
 			element: $toolEl,
 			eventAdd: eventAdd,
+			eventRemove: eventRemove,
 			exists: exists,
 			hasClass: hasClass,
 			html: $toolHtml,
@@ -160,7 +171,6 @@ var navplateComponent = function($this, $option, tool) {
 
 			// Contextual option
 			if ($option.type == 'contextual') {
-				tool.classAdd($navElement.parentNode, 'navplate-contextual-container');
 				var $navCloseUl = document.createElement('ul');
 				var $navCloseLi = document.createElement('li');
 				var $navClose = document.createElement('a');
@@ -179,6 +189,9 @@ var navplateComponent = function($this, $option, tool) {
 			$self.onclick = function(event) {
 				event.preventDefault();
 				if (!tool.hasClass($navElement, 'nav-display')) {
+					var $clickX = event.clientX;
+					var $clickY = event.clientY + (tool.element.body.scrollTop);
+
 					navRemoveHTMLOptionClasses();
 					var $openNavs = document.querySelectorAll('.navplate.nav-display');
 					for (var $i = 0, $len = $openNavs.length; $i < $len; $i++) {
@@ -186,6 +199,12 @@ var navplateComponent = function($this, $option, tool) {
 					}
 					tool.classAdd($navElement, 'nav-display');
 					tool.classAdd(tool.element.html, 'navplate-reveal navplate-type-' + $option.type + ' navplate-overlay-active-' + $option.active);
+					if ($option.type == 'contextual' && (window.innerWidth >= 700)) {
+						$navElement.style.top = $clickY + 20 + 'px';
+						$navElement.style.left = $clickX + 'px';
+					}
+					// window.addEventListener('resize', navClose);
+					tool.eventAdd(window, 'resize', navClose);
 					document.getElementById('web-overlay').onclick = function() {
 						navClose();
 					};
@@ -206,8 +225,11 @@ var navplateComponent = function($this, $option, tool) {
 		}
 
 		function navClose() {
+			// window.removeEventListener('resize', navClose)
+			tool.eventRemove(window, 'resize', navClose);;
 			tool.classRemove(document.querySelector('.navplate.nav-display'), 'nav-display');
 			tool.classRemove(tool.element.html, 'navplate-reveal');
+			$navElement.removeAttribute('style');
 			navRemoveHTMLOptionClasses();
 		}
 
