@@ -21,7 +21,7 @@ Start by including the necessary files.
 ```
 
 ## HTML Example
-There are three different navigations types (more to come), and use near identical HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.
+There are three different navigations types and all use the same HTML. You require the trigger that will open the navigation and the actual navigation list. See an example below.
 
 ```
 <a id="nav-trigger" href="#nav-example">Open Navigation</a>
@@ -34,22 +34,6 @@ There are three different navigations types (more to come), and use near identic
       <li><a href="#">Link Four</a></li>
       <li><a href="#">Link Five</a></li>
    </ul>
-</div>
-
-// The exception to the HTML above is the contextual navigation as show below.
-// It requires a containing element that will get automatically classed.
-<div>
-   <a id="nav-trigger" href="nav-example">Open Navigation</a>
-   <div id="nav-example">
-      <ul>
-         <li><h6>Navigation</h6></li>
-         <li><a href="#">Link One</a></li>
-         <li><a href="#">Link Two</a></li>
-         <li><a href="#">Link Three</a></li>
-         <li><a href="#">Link Four</a></li>
-         <li><a href="#">Link Five</a></li>
-      </ul>
-   </div>
 </div>
 ```
 
