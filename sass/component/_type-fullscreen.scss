@@ -14,28 +14,15 @@ $navplate-fs-delay: 0.075s;
 
 // Mixins
 @mixin navplate-type-fullscreen() {
-   .navplate.type-fullscreen {
-      @include navplate-type-fullscreen-styles-reveal();
-   }
-   .navplate.type-fullscreen.active-always {
-      @include navplate-type-fullscreen-styles();
-   }
-   .navplate.type-fullscreen.active-small {
-      @include breakpoint(small) {
-         @include navplate-type-fullscreen-styles();
-      }
-   }
-   .navplate.type-fullscreen.active-large {
-      @include breakpoint(large) {
-         @include navplate-type-fullscreen-styles();
-      }
-   }
-   a.navplate-close {
-      @include hide();
-      .navplate-reveal & {
-         @include show(block);
-      }
-   }
+	.navplate.type-fullscreen {
+		@include navplate-type-fullscreen-styles();
+	   a.navplate-close {
+	      @include hide();
+	      .navplate-reveal & {
+	         @include show(block);
+	      }
+	   }
+	}
 }
 
 @mixin navplate-type-fullscreen-styles() {

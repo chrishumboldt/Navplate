@@ -6,7 +6,6 @@
 
 // Naplate CSS
 @mixin navplate-css {
-   @include navplate-active();
    @include navplate-overlay();
 	@include navplate-type-contextual();
    @include navplate-type-fullscreen();

@@ -5,22 +5,10 @@
 */
 // Mixins
 @mixin navplate-type-slide() {
-   .navplate.type-slide.active-always {
-      @include navplate-type-slide-styles();
+	.navplate.type-slide {
+	   @include navplate-type-slide-styles();
 	   @include navplate-type-slide-styles-reveal();
-   }
-   .navplate.type-slide.active-small {
-      @include breakpoint(small) {
-         @include navplate-type-slide-styles();
-			@include navplate-type-slide-styles-reveal();
-      }
-   }
-   .navplate.type-slide.active-large {
-      @include breakpoint(large) {
-         @include navplate-type-slide-styles();
-			@include navplate-type-slide-styles-reveal();
-      }
-   }
+	}
 }
 @mixin navplate-type-slide-styles() {
    @include block($menu-width, 100%);

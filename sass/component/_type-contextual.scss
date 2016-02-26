@@ -10,23 +10,9 @@
 		@include breakpoint(large) {
 			@include animate(opacity, 0.3s);
 		}
-	}
-	.navplate.type-contextual.active-always {
 		@include navplate-type-contextual-reveal();
 		@include navplate-type-contextual-styles();
 	}
-   .navplate.type-contextual.active-small {
-      @include breakpoint(small) {
-			@include navplate-type-contextual-reveal();
-			@include navplate-type-contextual-styles();
-      }
-   }
-   .navplate.type-contextual.active-large {
-      @include breakpoint(large) {
-			@include navplate-type-contextual-reveal();
-			@include navplate-type-contextual-styles();
-      }
-   }
 	html.navplate-reveal.navplate-type-contextual #web-overlay {
 		@include breakpoint(large) {
 			@include visibility(show);
