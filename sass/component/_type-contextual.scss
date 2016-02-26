@@ -5,29 +5,15 @@
  */
 
 @mixin navplate-type-contextual() {
-	.navplate.type-contextual {
-		@include animate(bottom, 0.6s);
+	.np._t-contextual {
+		@include animate(bottom, 0.4s);
 		@include breakpoint(large) {
-			@include animate(opacity, 0.3s);
+			@include animate(opacity);
 		}
-	}
-	.navplate.type-contextual.active-always {
 		@include navplate-type-contextual-reveal();
 		@include navplate-type-contextual-styles();
 	}
-   .navplate.type-contextual.active-small {
-      @include breakpoint(small) {
-			@include navplate-type-contextual-reveal();
-			@include navplate-type-contextual-styles();
-      }
-   }
-   .navplate.type-contextual.active-large {
-      @include breakpoint(large) {
-			@include navplate-type-contextual-reveal();
-			@include navplate-type-contextual-styles();
-      }
-   }
-	html.navplate-reveal.navplate-type-contextual #web-overlay {
+	html.np-reveal.np-t-contextual #web-overlay {
 		@include breakpoint(large) {
 			@include visibility(show);
 			@include opacity(0);
@@ -36,7 +22,7 @@
 }
 @mixin navplate-type-contextual-reveal() {
 	@include breakpoint(small) {
-		&.nav-display {
+		&.np-display {
 			@include position-set(bottom 0);
 			ul.close-list {
 				@include transform-translate-3d(0px, 0px, 0px);
@@ -50,7 +36,7 @@
 	@include width(100%);
    @include level(-100);
    @include visibility(hidden);
-   &.navplate-ready {
+   &.np-ready {
       @include level(1001);
    }
 	ul {
@@ -98,7 +84,7 @@
 	@include breakpoint(small) {
 		@include position(fixed, bottom -500px left 0);
 		// Reveal
-		html.navplate-reveal.navplate-type-contextual &.nav-display {
+		html.np-reveal.np-t-contextual &.np-display {
 			@include visibility(visible);
 		}
 		ul {
@@ -106,7 +92,7 @@
 			&.close-list  {
 				@include width(100%);
 				@include transform-translate-3d(0px, 180px, 0px);
-				@include animate(all, 0.4s, 0.4s);
+				@include animate(all, 0.3s, 0.2s);
 				li {
 					@include border-radius();
 				}
@@ -121,7 +107,7 @@
 		@include visibility(hidden);
 		@include opacity(0);
 		// Reveal
-		html.navplate-reveal.navplate-type-contextual &.nav-display {
+		html.np-reveal.np-t-contextual &.np-display {
 			@include visibility(visible);
 			@include opacity(1);
 		}
@@ -139,7 +125,7 @@
 		}
 	}
 }
-.navplate-contextual-container {
+.np-contextual-container {
 	@include position(relative);
 	@include show(inline-block);
 }

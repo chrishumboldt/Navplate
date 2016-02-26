@@ -64,7 +64,6 @@ new navplate({
 | ---- | ---- | ---- | ---- |
 | selector | .navplate-trigger | | Set the HTML selector. |
 | type | slide | slide, contextual, fullscreen | This determines the type of navigation you want to use. |
-| active | small | small, large, always | Determine when you want the navigation to be active. |
 | clone | false | true, false | Clone the navigation HTML and use that for the component or if false use the designated HTML. |
 | close | close | | You can decide what you want the close text to say. |
 | reveal | left | left, right, top, bottom | Set the direction from which the navigation appears. **NOTE** that the bottom and top option only applies to the fullscreen navigation type. |
@@ -76,7 +75,6 @@ You can also set or overwrite the above options globally by altering the Navplat
 <script>
 // Default change
 $navplateDefault.selector = '.nav-link';
-$navplateDefault.active = 'always';
 $navplateDefault.type = 'fullscreen';
 
 // Execute
@@ -104,7 +102,6 @@ See an advanced example below with options as per the above.
 <script>
 new navplate('#nav-trigger', {
    type: 'fullscreen',
-   active: 'always',
    reveal: 'right'
 });
 </script>

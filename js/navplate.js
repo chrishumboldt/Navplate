@@ -13,7 +13,6 @@
 // Defaults
 var $navplateDefault = {
 	selector: '.navplate-trigger',
-	active: 'small',
 	clone: false,
 	close: 'close',
 	reveal: 'left',
@@ -28,7 +27,6 @@ var navplate = function($userOptions) {
 	$userOptions = $userOptions || false;
 	$self.options = {
 		selector: $userOptions.selector || $navplateDefault.selector,
-		active: $userOptions.active || $navplateDefault.active,
 		clone: $userOptions.clone || $navplateDefault.clone,
 		close: $userOptions.close || $navplateDefault.close,
 		type: $userOptions.type || $navplateDefault.type,
@@ -141,30 +139,30 @@ var navplateComponent = function($this, $option, tool) {
 		// Functions
 		function navSetup() {
 			if (!tool.isTouch()) {
-				tool.classAdd(tool.element.html, 'navplate-no-touch');
+				tool.classAdd(tool.element.html, 'np-no-touch');
 			}
 			if (!tool.exists(document.getElementById('web-overlay'))) {
 				tool.element.body.appendChild(tool.html.navOverlay);
 			}
-			tool.classAdd($self, 'navplate-trigger');
+			tool.classAdd($self, 'np-trigger');
 
 			// Clone
 			if ($option.clone === true) {
 				var $navClone = $navElement.cloneNode(true);
-				tool.classAdd($navClone, 'navplate clone type-' + $option.type + ' reveal-' + $option.reveal + ' active-' + $option.active);
+				tool.classAdd($navClone, 'np clone _t-' + $option.type + ' _r-' + $option.reveal);
 				tool.element.body.appendChild($navClone);
 				$navElement = $navClone;
 			} else {
-				tool.classAdd($navElement, 'navplate type-' + $option.type + ' reveal-' + $option.reveal + ' active-' + $option.active);
+				tool.classAdd($navElement, 'np _t-' + $option.type + ' _r-' + $option.reveal);
 				setTimeout(function() {
-					tool.classAdd($navElement, 'navplate-ready');
+					tool.classAdd($navElement, 'np-ready');
 				}, 500);
 			}
 
 			// Fullscreen option
 			if ($option.type == 'fullscreen') {
 				var $navClose = document.createElement('a');
-				$navClose.className = 'navplate-close';
+				$navClose.className = 'np-close';
 				$navClose.innerHTML = $option.close;
 				$navElement.appendChild($navClose);
 			}
@@ -174,12 +172,12 @@ var navplateComponent = function($this, $option, tool) {
 				var $navCloseUl = document.createElement('ul');
 				var $navCloseLi = document.createElement('li');
 				var $navClose = document.createElement('a');
-				$navClose.className = 'navplate-close';
+				$navClose.className = 'np-close';
 				$navClose.innerHTML = $option.close;
 				$navCloseUl.className = 'close-list';
 				$navCloseLi.appendChild($navClose);
 				$navCloseUl.appendChild($navCloseLi);
-				if (!tool.exists($navElement.querySelector('.navplate-close'))) {
+				if (!tool.exists($navElement.querySelector('.np-close'))) {
 					$navElement.appendChild($navCloseUl);
 				}
 			}
@@ -187,20 +185,20 @@ var navplateComponent = function($this, $option, tool) {
 
 		function navReveal() {
 			var $navLinks = $navElement.querySelectorAll('a');
-			var $navLinkClose = $navElement.querySelectorAll('a.navplate-close');
+			var $navLinkClose = $navElement.querySelectorAll('a.np-close');
 			$self.onclick = function(event) {
 				event.preventDefault();
-				if (!tool.hasClass($navElement, 'nav-display')) {
+				if (!tool.hasClass($navElement, 'np-display')) {
 					var $clickX = event.clientX;
 					var $clickY = event.clientY + (tool.element.body.scrollTop);
 
 					navRemoveHTMLOptionClasses();
-					var $openNavs = document.querySelectorAll('.navplate.nav-display');
+					var $openNavs = document.querySelectorAll('.np.np-display');
 					for (var $i = 0, $len = $openNavs.length; $i < $len; $i++) {
-						tool.classRemove($openNavs[$i], 'nav-display');
+						tool.classRemove($openNavs[$i], 'np-display');
 					}
-					tool.classAdd($navElement, 'nav-display');
-					tool.classAdd(tool.element.html, 'navplate-reveal navplate-type-' + $option.type + ' navplate-overlay-active-' + $option.active);
+					tool.classAdd($navElement, 'np-display');
+					tool.classAdd(tool.element.html, 'np-reveal np-t-' + $option.type);
 					if ($option.type == 'contextual' && (window.innerWidth >= 700)) {
 						$navElement.style.top = $clickY + 20 + 'px';
 						$navElement.style.left = $clickX + 'px';
@@ -227,21 +225,17 @@ var navplateComponent = function($this, $option, tool) {
 		}
 
 		function navClose() {
-			// window.removeEventListener('resize', navClose)
-			tool.eventRemove(window, 'resize', navClose);;
-			tool.classRemove(document.querySelector('.navplate.nav-display'), 'nav-display');
-			tool.classRemove(tool.element.html, 'navplate-reveal');
+			tool.eventRemove(window, 'resize', navClose);
+			tool.classRemove(document.querySelector('.np.np-display'), 'np-display');
+			tool.classRemove(tool.element.html, 'np-reveal');
 			$navElement.removeAttribute('style');
 			navRemoveHTMLOptionClasses();
 		}
 
 		function navRemoveHTMLOptionClasses() {
-			tool.classRemove(tool.element.html, 'navplate-type-slide');
-			tool.classRemove(tool.element.html, 'navplate-type-fullscreen');
-			tool.classRemove(tool.element.html, 'navplate-type-contextual');
-			tool.classRemove(tool.element.html, 'navplate-overlay-active-small');
-			tool.classRemove(tool.element.html, 'navplate-overlay-active-always');
-			tool.classRemove(tool.element.html, 'navplate-overlay-active-large');
+			tool.classRemove(tool.element.html, 'np-t-slide');
+			tool.classRemove(tool.element.html, 'np-t-fullscreen');
+			tool.classRemove(tool.element.html, 'np-t-contextual');
 		}
 
 		// Execute

@@ -15,26 +15,12 @@
 		@include opacity(0);
 		@include animate(all, 0.3s);
 		// Reveal
-		html.navplate-reveal.navplate-overlay-active-always & {
+		html.np-reveal & {
 			@include visibility(visible);
 			@include opacity(1);
-		}
-		html.navplate-reveal.navplate-overlay-active-small & {
-			@include visibility(visible);
-			@include opacity(1);
-			@include breakpoint(large) {
-				@include visibility(hidden);
-				@include opacity(0);
-			}
-		}
-		html.navplate-reveal.navplate-overlay-active-large & {
-			@include breakpoint(large) {
-				@include visibility(visible);
-				@include opacity(1);
-			}
 		}
 		// Types
-		.navplate-type-fullscreen & {
+		.np-t-fullscreen & {
 			@include background-colour(fade-out($black, 0.175));
 		}
 	}
